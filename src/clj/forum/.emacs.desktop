@@ -1,0 +1,52 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Tue Dec  6 21:02:37 2016
+;; Desktop file format version 208
+;; Emacs version 25.1.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (22598 46829 590721 0) (desktop . "208") "dumeng@dumengMac" nil nil ((((font-backend mac-ct) (fontsize . 0) (font . "-*-Source Code Pro-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#F8F8F2") (background-color . "#272822") (line-spacing) (left-fringe . 8) (right-fringe . 8) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (scroll-bar-height . 0) (alpha) (fullscreen) (display-type . color) (background-mode . dark) (cursor-color . "#F8F8F2") (environment) (mouse-color . "#F8F8F2") (scroll-bar-background . "dark cyan") (powerline-cache) (frameset--id . "9656-63B8-2B30-AF8F") (frameset--mini t . t) (height . 41) (width . 148) (modeline . t) (minibuffer . t) (unsplittable) (left . 54) (top . 27) (right-divider-width . 0) (bottom-divider-width . 0) (icon-name) (visibility . t) (display . "dumengMac") (explicit-name) (tool-bar-position . top)) ((min-height . 4) (min-width . 20) (min-height-ignore . 4) (min-width-ignore . 10) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 72) (min-pixel-width . 160) (min-pixel-height-ignore . 72) (min-pixel-width-ignore . 80) (min-pixel-height-safe . 18) (min-pixel-width-safe . 32)) hc (pixel-width . 1200) (pixel-height . 720) (total-width . 150) (total-height . 40) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 216) (pixel-height . 720) (total-width . 27) (total-height . 40) (normal-height . 1.0) (normal-width . 0.32926829268292684) (buffer " *NeoTree*" (selected) (hscroll . 0) (fringes 8 8 nil) (margins nil) (scroll-bars nil 0 t nil 0 nil) (vscroll . 0) (dedicated . t) (point . 182) (start . 1))) (leaf (last . t) (pixel-width . 984) (pixel-height . 720) (total-width . 123) (total-height . 40) (normal-height . 1.0) (normal-width . 0.6707317073170732) (buffer "core.clj" (selected . t) (hscroll . 0) (fringes 8 8 nil) (margins 2) (scroll-bars nil 0 t nil 0 nil) (vscroll . 0) (dedicated) (point . 504) (start . 1)))))])
+(setq comint-input-ring nil)
+(setq compile-history nil)
+(setq desktop-missing-file-warning nil)
+(setq dired-regexp-history nil)
+(setq extended-command-history '("guide-key-mode" "helm-mode" "package-install" "package-refresh-contents" "package-install" "powerline-default-theme" "neotree" "magit-log" "multiple-cursors-mode" "customize" "neotree" "^rgr" "^dired" "^neotree-ref" "^shell" "^fly" "^" "^jek" "^eval" "^table" "^jeky" "^neotree-c" "^neo" "^cu" "^cider-e" "^cider" "^tabbar" "^neotr" "^cid" "load-file"))
+(setq face-name-history '("link" "font-lock-comment-face"))
+(setq file-name-history '("/Users/dumeng/.emacs.d/lisp/init-local.el" "~/.emacs.d/lisp/init-editing-utils.el" "/Users/dumeng/.emacs.d/lisp/" "~/.emacs.d/lisp/init-crontab.el" "/Users/dumeng/.emacs.d/lisp/init-dired.el" "/Users/dumeng/.emacs.d/lisp/init-windows.el" "/Users/dumeng/.emacs.d/lisp/init-vc.el" "/Users/dumeng/.emacs.d/lisp/init-misc.el" "/Users/dumeng/.emacs.d/lisp/init-gui-frames.el" "/Users/dumeng/.emacs.d/lisp/init-frame-hooks.el" "/Users/dumeng/.emacs.d/init.el" "~/projects/github/keepon/_config.yml" "~/projects/github/keepon/Gemfile.lock" "~/projects/github/keepon/Gemfile" "/Users/dumeng/projects/github/keepon/_drafts/2016-12-03-history-manipulation.md" "/Users/dumeng/projects/github/keepon/_drafts/2016-12-01-use-html5history-and-secretary-in-clojure-web-development.md" "~/projects/github/keepon/_drafts/2016-11-20-react-router.markdown" "~/projects/github/keepon/_drafts/2016-11-21-lessons-learned-from-practice-in-react.markdown" "~/projects/github/keepon/_drafts/2016-11-24-white-space-property-in-css.markdown" "~/projects/github/keepon/_drafts/2016-11-26-hot-reload-clojure-development.md" "/Users/dumeng/.emacs.d/elpa/iedit-20161030.1920/iedit-lib.el" "/Users/dumeng/.emacs.d/elpa/iedit-20161030.1920/iedit.el" "/Users/dumeng/projects/github/keepon/_drafts/2016-11-30-small-problems-met-when-clojure-web-development.md" "~/.emacs.d/custom.el" "/Users/dumeng/projects/clojure/lum/src/cljs/lum/component.cljs" "~/projects/clojure/heroku/resources/style.css" "~/projects/clojure/heroku/resources/public/css/style.css" "~/projects/clojure/heroku/src/style.scss" "~/projects/clojure/heroku/src/heroku/views/login.clj" "~/projects/clojure/heroku/resources/public/js/login.js" "~/projects/clojure/heroku/flymd.md" "~/projects/clojure/heroku/target/classes/META-INF/maven/heroku/heroku/pom.properties" "~/projects/clojure/heroku/target/stale/leiningen.core.classpath.extract-native-dependencies" "~/projects/clojure/heroku/target/heroku-1.0.0-SNAPSHOT.jar" "~/projects/clojure/lum/env/dev/clj/user.clj" "~/projects/clojure/lum/resources/public/favicon.ico" "~/projects/clojure/lum/profiles.clj" "~/projects/clojure/lum/Procfile" "~/projects/clojure/lum/src/clj/lum/db/core.clj" "~/projects/clojure/lum/src/clj/lum/config.clj" "~/projects/clojure/lum/README.md" "~/projects/clojure/heroku/project.clj" "~/projects/clojure/lum/src/clj/lum/routes/home.clj" "~/projects/clojure/lum/resources/templates/home.html" "~/projects/clojure/lum/src/cljc/lum/validation.cljc" "~/projects/clojure/lum/src/clj/lum/middleware.clj" "~/projects/clojure/lum/src/clj/lum/handler.clj" "~/projects/clojure/lum/src/clj/lum/layout.clj" "~/.emacs.d/elpa/tabbar-20160524.1401/tabbar.el" "~/projects/clojure/heroku/src/heroku/web.clj" "~/projects/clojure/heroku/src/heroku/views/layout.clj" "~/projects/clojure/lum/target/cljsbuild/public/js/app.js" "~/projects/clojure/lum/target/cljsbuild/public/js/out/lum/core.js" "~/projects/clojure/lum/target/cljsbuild/public/js/out/lum/app.js" "~/projects/clojure/lum/src/cljs/lum/ajax.cljs" "~/projects/clojure/lum/env/prod/cljs/lum/prod.cljs" "~/projects/clojure/lum/src/cljs/lum/core.cljs" "~/.emacs.d/lisp/init-local.el" "~/projects/clojure/lum/src/clj/lum/core.clj" "~/projects/clojure/lum/project.clj" "~/.bash_profile" "~/projects/clojure/lum/src/clj/cider.clj" "/Users/dumeng/.emacs.d/elpa/cider-20161127.714/cider-compat.el" "/Users/dumeng/.emacs.d/elpa/cider-20161127.714/cider.el" "~/.emacs.d/elpa/cider-20161127.714/cider-autoloads.el" "/Users/dumeng/projects/clojure/lum/src/clj/cider.clj" "~/.emacs.d/elpa/cider-20161121.312/cider-autoloads.el"))
+(setq grep-find-history nil)
+(setq grep-history nil)
+(setq ido-buffer-history nil)
+(setq ido-last-directory-list nil)
+(setq ido-work-directory-list nil)
+(setq ido-work-file-list nil)
+(setq ivy-history '("init-local.el" "edi" "2016-12-03-history-manipulation.md" "init-local.el" "scr" "tabbar" "compo" "cider" "tabbar-mo" "*cider-repl lum*" "cid" "untitled" "scroll-b" "default-fra" "mo" "font-si" "dracula" "sanityinc-solarized-dark" "sanityinc-tomorrow-night" "tango-dark" "whiteboard" "misterioso" "manoj-dark" "leuven" "dichromacy" "deeper-blue" "adwaita" "epc" "mes" "init-local.el" "init" "md" "me" "new" "lisp" "fo" "s" "README.md" "pol" "init.el" "markdown-pr" "jekyll" "flymd" "project.clj" "tabb" "flycheck-co" "power" "all-the" "neot" "neo" "*scratch*" "dra" "monokai"))
+(setq minibuffer-history '("/Users/dumeng/projects/clojure/forum/src/clj/forum/" "helm" "https://www.google.com/" "https://www.google.com" "file:///Users/dumeng/projects/clojure/heroku/markdown-preview-eww-result.html" "file:///Users/dumeng/markdown-preview-eww-result.html"))
+(setq org-clock-history nil)
+(setq org-refile-history nil)
+(setq org-tags-history nil)
+(setq query-replace-history '("items" "posts" "posts]" "1.0" "0.8\n" "0.8"))
+(setq read-expression-history nil)
+(setq regexp-history '("s"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq search-ring nil)
+(setq shell-command-history '("rm Gemfile.lock" "mkdir js" "mkdir views" "ls"))
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/Users/dumeng/projects/clojure/forum/src/clj/forum/core.clj"
+  "core.clj"
+  'clojure-mode
+  '(anzu-mode global-auto-revert-mode undo-tree-mode whole-line-or-region-mode hes-mode whitespace-cleanup-mode auto-compile-on-load-mode linum-mode goto-address-prog-mode paredit-mode bug-reference-prog-mode diff-hl-mode highlight-symbol-mode rainbow-delimiters-mode subword-mode aggressive-indent-mode redshank-mode helm-mode)
+  504
+  '(504 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
