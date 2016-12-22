@@ -18,6 +18,7 @@
                  [org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.293" :scope "provided"]
                  [org.clojure/tools.cli "0.3.5"]
+                 [org.webjars/jquery "3.1.1-1"]
                  [org.clojure/tools.logging "0.3.1"]
                  [org.webjars.bower/tether "1.3.7"]
                  [org.webjars/bootstrap "4.0.0-alpha.5"]
@@ -33,7 +34,8 @@
                  [secretary "1.2.3"]
                  [selmer "1.10.0"]
                  [com.cognitect/transit-cljs "0.8.239"]
-                 [cljsjs/tether "1.1.1-0"]]
+                 [cljsjs/tether "1.1.1-0"]
+                 [cljsjs/jquery "2.2.4-0"]]
 
   :min-lein-version "2.0.0"
 

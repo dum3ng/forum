@@ -1,67 +1,10 @@
-(ns forum.component
-  (:require [re-frame.core :refer [subscribe dispatch]]
+(ns forum.components.section
+  (:require [forum.components.utils :refer [wrap-toggle]]
+            [re-frame.core :refer [subscribe dispatch]]
             [reagent.core :as r]
-            [ajax.core :refer [POST]]
             [forum.util :as u]
-            [cljsjs.tether]
-            )
-  )
+            [forum.components.utils :refer [indicator wrap-toggle]]))
 
-(defn- get-value [e]
-  (-> js/document
-      (.getElementById e)
-      .value))
-
-(def section-keys [:earth :mars :venus])
-
-(defn indicator
-  []
-  [:div
-   [:span.loader {:style {:display "inline-block"}}
-    [:img {:src "/img/loader.svg"}]]] )
-
-
-(defn nav-link [uri title page collapsed?]
-  (let [selected-page (subscribe [:page])]
-    [:li.nav-item
-     {:class (when (= page @selected-page) "active")}
-     [:a.nav-link
-      {:href uri
-       :on-click #(reset! collapsed? true)} title]]))
-
-;;
-;; pages
-;;
-(defn page-nav []
-  (r/with-let [collapsed? (r/atom true)]
-    [:nav#page-nav.navbar.navbar-dark.bg-primary
-     [:button.navbar-toggler.hidden-sm-up
-      {:on-click #(swap! collapsed? not)} "☰"]
-     [:div.collapse.navbar-toggleable-xs
-      (when-not @collapsed? {:class "in"})
-      [:a.navbar-brand {:href "#/"} "forum"]
-      [:ul.nav.navbar-nav
-       [nav-link "#/" "Home" :home collapsed?]
-       [nav-link "#/forum" "Forum" :forum collapsed?]
-       [nav-link "#/about" "About" :about collapsed?]]]]))
-
-(defn home-page []
-  [:h1 "This is home page"])
-
-(defn about-page []
-  [:h1 "this is about page"])
-
-;; wrap!
-(defn wrap-toggle
-  ([page show ]
-   (wrap-toggle page show nil))
-  ([page show extra]
-   [:div.row (merge-with merge extra {:style {:display (if show "block" "none") } })
-    [:div.col-xs
-     (if (= (type page) (type []))
-       page  ;; if page is a vector, then should not wrapped in square brackets
-       [page])]])
-  )
 
 ;;
 ;; sections
@@ -255,46 +198,3 @@
     [section-nav]]
    [:div.col-xs-12
     [section]]])
-
-
-(defn page []
-  (let [c-page (subscribe [:page])]
-    (fn []
-      [:div.row
-       [:div.col-xs-12
-        [wrap-toggle home-page (= @c-page :home)]]
-       [:div.col-xs-12
-        [wrap-toggle section-page (= @c-page :forum) ]]
-       [:div.col-xs-12
-        [wrap-toggle about-page (= @c-page :about)]]])))
-
-(defn show []
-  (let [all (subscribe [:all])
-        minus (subscribe [:minus])
-        timeout (subscribe [:timeout])]
-    (print (str @all))
-    (fn []
-      (print "minus: " @minus)
-      [:div
-       [indicator]
-       [:h3 (str "timeout: " @timeout)]
-       [:button.btn.btn-primary {:on-click #(dispatch [:minus (.random js/Math) (.random js/Math)])}]
-       [:button.btn.btn-primary {:on-click #(dispatch [:timeout])} "dispatch"]
-       [:button.btn.btn-primary {:on-click #(do (print (str @all))
-                                                )} "show all"]])))
-
-;; (def attach (js/Tether. (clj->js {:element "#section-nav"
-;;                                   :target "#page-nav"
-;;                                   :attatchment "bottom center"
-;;                                   :targetAttachment "top center"
-;;                                   :constraints [{:to "window"
-;;                                                  :pin true
-;;                                                  :attatchment "together"}]})))
-
-
-;; app
-(defn app []
-  [:div#app
-   [page-nav]
-   [:div.container
-    [page]]])

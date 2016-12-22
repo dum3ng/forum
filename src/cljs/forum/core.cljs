@@ -8,8 +8,8 @@
             [ajax.core :refer [GET POST]]
             [forum.ajax :refer [load-interceptors!]]
             [forum.handlers]
+            [forum.components.core :as c  ]
             [forum.subscriptions]
-            [forum.component :as component]
             )
   (:import goog.History))
 
@@ -71,8 +71,10 @@
 (defn fetch-docs! []
   (GET "/docs" {:handler #(dispatch [:set-docs %])}))
 
+(defn hello [] [:div [:h1 "hello"]])
+
 (defn mount-components []
-  (r/render component/app (.getElementById js/document "app")))
+  (r/render c/app (.getElementById js/document "app")))
 
 (defn init! []
   (rf/dispatch-sync [:initialize-db])

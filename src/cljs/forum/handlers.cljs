@@ -86,6 +86,7 @@
 (reg-event-db
  :submit-new-post-failure
  (fn [db [_ section result]]
+   (print result)
    (assoc-in db [:submitting-new-post-in-section section] false)))
 
 ;; for comment

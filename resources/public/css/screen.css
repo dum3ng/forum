@@ -70,6 +70,9 @@ body {
     -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
+br {
+  height: 1rem; }
+
 /*------------------ ;; */
 .section-nav {
   height: 100%;
@@ -126,5 +129,47 @@ body {
 
 button.submitting {
   cursor: not-allowed; }
+
+/*-----tab-------*/
+.tab {
+  border: solid 1px lightgray;
+  box-shadow: 0 2px 15px 2px #404040; }
+  .tab .tab-title {
+    padding: 10px;
+    text-align: center;
+    background-color: #4078c0;
+    color: white; }
+  .tab .tab-content {
+    padding-top: 15px;
+    padding-bottom: 15px; }
+  .tab .active {
+    background-color: white;
+    color: #4078c0;
+    font-weight: bold; }
+
+/*------end of tab -----------*/
+/*-------start of input --------*/
+.input-group {
+  border-radius: 0; }
+  .input-group .form-control {
+    border-radius: 0; }
+  .input-group .input-group-addon {
+    border-radius: 0; }
+    .input-group .input-group-addon img {
+      width: 24px; }
+
+/*----start of modal -----------*/
+#modal {
+  display: none;
+  opacity: 1; }
+  #modal .modal-dialog {
+    margin-top: 100px; }
+  #modal .modal-content {
+    padding: 0px;
+    border: none; }
+
+#backdrop {
+  display: none;
+  opacity: 0.5; }
 
 /*# sourceMappingURL=screen.css.map */

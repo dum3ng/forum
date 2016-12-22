@@ -84,6 +84,10 @@ body {
     }
 }
 
+br{
+    height: 1rem;
+}
+
 $active-color : #4078c0;
 $default-color : #222;
 $default-border: solid 1px lightgray;
@@ -159,4 +163,58 @@ $default-border: solid 1px lightgray;
 
 button.submitting{
     cursor: not-allowed;
+}
+
+/*-----tab-------*/
+.tab{
+    border: solid 1px lightgray;
+    box-shadow: 0 2px 15px 2px #404040;
+    .tab-title{
+        padding: 10px;
+        text-align: center;
+        background-color: $active-color;
+        color: white;
+    }
+    .tab-content {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .active {
+        background-color: white;
+        color: $active-color;
+        font-weight: bold;
+    }
+}
+
+/*------end of tab -----------*/
+
+/*-------start of input --------*/
+.input-group {
+    border-radius: 0;
+    .form-control {
+        border-radius: 0;
+    }
+    .input-group-addon {
+        border-radius: 0;
+        img {
+            width: 24px;
+        }
+    }
+}
+
+/*----start of modal -----------*/
+#modal {
+    display: none;
+    opacity: 1;
+    .modal-dialog {
+        margin-top: 100px;
+    }
+    .modal-content {
+        padding: 0px;
+        border: none;
+    }
+}
+#backdrop {
+    display: none;
+    opacity: 0.5;
 }
