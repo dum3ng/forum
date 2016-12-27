@@ -1,4 +1,4 @@
-(ns forum.components.new
+(ns forum.components.new-view
   (:require [re-frame.core :refer [subscribe dispatch]]
             [reagent.core :as r]))
 

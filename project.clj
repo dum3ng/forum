@@ -6,13 +6,14 @@
   :dependencies [[bouncer "1.0.0"]
                  [buddy "1.2.0"]
                  [cljs-ajax "0.5.8"]
-                 [com.novemberain/monger "3.0.0-rc2" :exclusions [ch.qos.logback/logback-classic]]
+                 [com.novemberain/monger "3.0.0-rc2" :exclusions [ch.qos.logback/logback-classic
+                                                                  com.google.guava/guava]]
                  [compojure "1.5.1"]
                  [cprop "0.1.9"]
                  [luminus-immutant "0.2.2" :exclusions [ch.qos.logback/logback-classic]]
                  [luminus-nrepl "0.1.4"]
                  [markdown-clj "0.9.91"]
-                 [metosin/compojure-api "1.1.9"]
+                 [metosin/compojure-api "1.1.9" ]
                  [metosin/ring-http-response "0.8.0"]
                  [mount "0.1.10"]
                  [org.clojure/clojure "1.8.0"]
@@ -24,8 +25,8 @@
                  [org.webjars/bootstrap "4.0.0-alpha.5"]
                  [org.webjars/font-awesome "4.7.0"]
                  [org.webjars/webjars-locator-jboss-vfs "0.1.0"]
-                 [re-frame "0.8.0"]
-                 [day8.re-frame/http-fx "0.1.3"]
+                 [re-frame "0.8.0" ]
+                 [day8.re-frame/http-fx "0.1.3" ]
                  [reagent "0.6.0"]
                  [reagent-utils "0.2.0"]
                  [ring-middleware-format "0.7.0"]
@@ -58,7 +59,7 @@
    :nrepl-port 7002
    :css-dirs ["resources/public/css"]
    :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
-  
+
 
   :profiles
   {:uberjar {:omit-source true
@@ -74,8 +75,8 @@
                  :pretty-print false
                  :closure-warnings
                  {:externs-validation :off :non-standard-jsdoc :off}}}}}
-             
-             
+
+
              :aot :all
              :uberjar-name "forum.jar"
              :source-paths ["env/prod/clj"]
@@ -91,11 +92,11 @@
                                  [binaryage/devtools "0.8.3"]
                                  [com.cemerick/piggieback "0.2.2-SNAPSHOT"]
                                  [doo "0.1.7"]
-                                 [figwheel-sidecar "0.5.8"]]
+                                 [figwheel-sidecar "0.5.8" ]]
                   :plugins      [[com.jakemccrary/lein-test-refresh "0.14.0"]
                                  [lein-doo "0.1.7"]
                                  [lein-figwheel "0.5.8"]
-                                 [org.clojure/clojurescript "1.9.293"]]
+                                 [org.clojure/clojurescript "1.9.293" ]]
                   :cljsbuild
                   {:builds
                    {:app
@@ -108,9 +109,9 @@
                       :source-map true
                       :optimizations :none
                       :pretty-print true}}}}
-                  
-                  
-                  
+
+
+
                   :doo {:build "test"}
                   :source-paths ["env/dev/clj" "test/clj"]
                   :resource-paths ["env/dev/resources"]
@@ -127,7 +128,7 @@
                       :main "forum.doo-runner"
                       :optimizations :whitespace
                       :pretty-print true}}}}
-                  
+
                   }
    :profiles/dev {}
    :profiles/test {}})

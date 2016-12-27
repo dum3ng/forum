@@ -3,7 +3,7 @@
             [re-frame.core :refer [subscribe dispatch]]
             [reagent.core :as r]
             [forum.util :as u]
-            [forum.components.new :refer [new-view]]
+            [forum.components.new-view :refer [new-view]]
             [forum.components.single :refer [single-view]]
             [forum.components.list :refer [list-view]]
             [forum.components.sidebar :refer [rightbar]]

@@ -9,7 +9,7 @@
   (:import java.util.Date)  )
 
 (defstate db*
-  :start (-> env :database-url mg/connect-via-uri)
+  :start (-> env (:database-url "mongodb://heroku_f0q9x6w4:heroku_f0q9x6w4@ds145138.mlab.com:45138/heroku_f0q9x6w4") mg/connect-via-uri)
   :stop (-> db* :conn mg/disconnect))
 
 (defstate db
