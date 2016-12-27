@@ -218,3 +218,17 @@ button.submitting{
     display: none;
     opacity: 0.5;
 }
+
+/*----sidebar----*/
+.rightbar{
+    border:solid 1px lightgray;
+
+     .profile{
+         background-color: lightgray;
+         border-radius: 50%;
+         width: 50px;
+         height: 50px;
+         color: $active-color;
+    }
+
+}

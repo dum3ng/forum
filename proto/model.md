@@ -1,36 +1,27 @@
-## server
-forum.db
 
-schema:
-
-user{
+## user
+{
   _id: string(ObjectId),
   create-at: Date,
   username: string,
   password: string
 }
-
-post{
+## post
+{
   _id: string(ObjectId),
   create-at: Date,
   update-at: Date,
-  author: {
-    _id: string(ObjectId),
-    name: string
-  },
+  author: string(ObjectId),
   title: string,
   content: text,
   section: string,
   comments: [Comment]
 }
-
-comment{
+## comment
+{
   _id,
   content: text,
-  author: {
-    _id: string(ObjectId),
-    name: string
-  },
+  author:  string(ObjectId),
   create-at,
   update-at,
 }

@@ -28,6 +28,6 @@
                                  :on-change #(reset! content (.. % -target -value))}]]
        [:br]
        [:div.input-group
-        [:button.btn.btn-primary {:on-click #(do (dispatch [:submit-new-post-in-section section {:title @title :content @content } @self])
+        [:button.btn.btn-primary {:on-click #(do (dispatch [:submit-new-post-in-section section {:title @title :content @content } ])
                                                  (reset! title "untitled")
                                                  (reset! content ""))} "submit"]]])))

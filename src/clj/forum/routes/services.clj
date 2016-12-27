@@ -7,6 +7,7 @@
             [buddy.auth.accessrules :refer [restrict]]
             [buddy.auth :refer [authenticated?]]
             [forum.db.core :as db ]
+            [forum.layout :refer [*identity*]]
             [clojure.tools.logging :as log]))
 
 (defn access-error [_ _]
@@ -51,7 +52,7 @@
    :section s/Str
    :create-at s/Inst
    :update-at s/Inst
-   :author Author
+   :author s/Str ;; it is an id string
    (s/optional-key :comments) [Comment]})
 (s/defschema UpdatePost
   {:_id s/Str
@@ -157,14 +158,14 @@
                  (ok (db/update-post id user)) )
            (POST "/post/new" []
                  :auth-rules authenticated?
-                 :return operation-response
+                 :return s/Any
                  :body-params [post :- s/Any,;; NewPost,
-                               section :- s/Any,;; String,
-                               user :- s/Any;; User
+                               section :- String,;; String,
                                ]
-                 (ok (db/create-post post
-                                     section
-                                     user)))
+                 (let [user_id (:_id *identity*)]
+                   (ok (db/create-post post
+                                       section
+                                       user_id))))
            (POST "/post/:id/comment/new" []
                  :path-params [id :- String]
                  :return operation-response

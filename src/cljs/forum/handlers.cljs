@@ -61,11 +61,10 @@
    {:http-xhrio {:method :post
                  :uri "/api/post/new"
                  :params {:post post
-                          :section section
-                          :user user}
+                          :section section}
                  :timeout         8000
                  :format (ajax/json-request-format)
-                 :response-format (ajax/text-response-format)
+                 :response-format (ajax/json-response-format {:keywords? true})
                  :on-success [:submit-new-post-success section]
                  :on-failure [:submit-new-post-failure section]}
     :db (-> db
@@ -245,10 +244,11 @@
      ""    (-> db
                (assoc :register-submitting false)
                (assoc :register-info "username has been taken."))
-     (-> db                ;; created!
-         (assoc :register-submitting false)
-         (assoc :self result)
-         (assoc :modal-state false)))))
+     (do (print "register result: " result)
+         (-> db                ;; created!
+             (assoc :register-submitting false)
+             (assoc-in [:self :user] result)
+             (assoc :modal-state false))))))
 
 (reg-event-db
  :register-failure

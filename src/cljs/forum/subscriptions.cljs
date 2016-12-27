@@ -26,9 +26,15 @@
    (:section db)))
 
 (reg-sub
- :user
+ :other
  (fn [db [_]]
-   (:user db)))
+   (:other db)))
+
+(reg-sub
+ :self
+ (fn [db _]
+   (:self db)))
+
 
 (reg-sub
  :posts-in-section
@@ -116,8 +122,3 @@
  :register-info
  (fn [db _]
    (:register-info db)))
-
-(reg-sub
- :self
- (fn [db _]
-   (:self db)))

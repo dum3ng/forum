@@ -12,8 +12,8 @@
    ;; user, can be nil
    :timeout "initial"
    :docs ""
-   :user {}
-   :self {}
+   :other {:user {} :recents []}
+   :self {:user {} :recents []}
    ;; the modal-content can be
    ;; :auth  and others...
    :modal-state false

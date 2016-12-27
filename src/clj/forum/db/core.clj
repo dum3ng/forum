@@ -69,14 +69,15 @@
       (assoc :name (:username user))
       (dissoc :username)))
 
-(defn create-post [post section user]
-  (let [now (Date.)]
-    (str-response (mc/insert db "posts" (merge {:_id (str-id)
-                                                :author (user->author user)
-                                                :create-at now
-                                                :update-at now
-                                                :section (str section) }
-                                               post)))))
+(defn create-post [post section user-id]
+  (let [now (Date.)
+        post (merge post
+                    {:_id (str-id)
+                     :author user-id
+                     :create-at now
+                     :update-at now})]
+    (do   (mc/insert db "posts" post)
+          {:id (:_id post)})))
 ;; the post contains only 3 fields
 ;; {:_id, :title, :content}
 (defn update-post [post]

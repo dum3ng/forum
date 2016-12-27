@@ -6,6 +6,7 @@
             [forum.components.new :refer [new-view]]
             [forum.components.single :refer [single-view]]
             [forum.components.list :refer [list-view]]
+            [forum.components.sidebar :refer [rightbar]]
             [forum.components.utils :refer [indicator wrap-toggle]]))
 
 
@@ -64,14 +65,12 @@
   (let [state (subscribe [:state-of-section section])]
     (fn [section]
       [:div.row
-       [:div.col-xs-1
+       [:div.col-xs-2
         [view-switcher]]
-       [:div.col-xs-8.section-main
+       [:div.col-xs-10.section-main
         [wrap-toggle [single-view section] (= @state :single) {:class "col-xs-10 offset-xs-1"}]
         [wrap-toggle [new-view section] (= @state :new) {:class "col-xs-10 offset-xs-1"}]
-        [wrap-toggle [list-view section] (= @state :list) {:class "col-xs-10 offset-xs-1"}]]
-       [:div.col-xs-3
-        [:h2 "right"]]])))
+        [wrap-toggle [list-view section] (= @state :list) {:class "col-xs-10 offset-xs-1"}]]])))
 
 (defn section []
   (let [c-section (subscribe [:section])]
@@ -88,5 +87,7 @@
   [:div.row
    [:div.col-xs-12
     [section-nav]]
-   [:div.col-xs-12
-    [section]]])
+   [:div.col-xs-9
+    [section]]
+   [:div.col-xs-3
+    [rightbar]]])
