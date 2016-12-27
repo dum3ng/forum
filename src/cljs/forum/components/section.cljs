@@ -3,6 +3,9 @@
             [re-frame.core :refer [subscribe dispatch]]
             [reagent.core :as r]
             [forum.util :as u]
+            [forum.components.new :refer [new-view]]
+            [forum.components.single :refer [single-view]]
+            [forum.components.list :refer [list-view]]
             [forum.components.utils :refer [indicator wrap-toggle]]))
 
 
@@ -28,117 +31,6 @@
         [section-nav-link "#/forum/mars" "mars" :mars]]
        [:div.col-xs
         [section-nav-link "#/forum/venus" "venus" :venus]]]]]))
-
-(def user {:_id "identiclaID"
-           :create-at (.toISOString (js/Date.))
-           :username "dumeng"})
-
-(defn new-view
-  [section]
-  (let [new-post (subscribe [:new-post-in-section section])
-        title (r/atom "untitled")
-        content (r/atom "")]
-    (fn [section]
-      [:div.row
-       [:label {:for "title"} "Title"]
-       [:br]
-       [:div.input-group
-        [:input#title.form-control {:value @title
-                                    :on-change #(reset! title (.. % -target -value))}]]
-       [:br]
-       [:div.input-group
-        [:label {:for "content"}]
-        [:textarea.form-control {:rows 10
-                                 :cols 20
-                                 :value @content
-                                 :on-change #(reset! content (.. % -target -value))}]]
-       [:br]
-       [:div.input-group
-        [:button.btn.btn-primary {:on-click #(do (dispatch [:submit-new-post-in-section section {:title @title :content @content } user])
-                                                 (reset! title "untitled")
-                                                 (reset! content ""))} "submit"]]])))
-
-(defn post-item
-  [author content & [extra]]
-  [:div.row.post-item
-   [:div.col-xs-2.author-info
-    [:p "author:"]
-    [:p (:name author)]]
-   [:div.col-xs-10.content
-    [:p content]]])
-
-(defn comment-view
-  [post]
-  (let [content (r/atom "")
-        submitting (subscribe [:submitting-new-comment])]
-    (fn [post]
-      (print "submitting: " submitting)
-      [:div.row
-       [:h3 "New Comment"]
-       [:div.col-xs-12
-        [:input-group
-         [:input.form-control {:on-change #(reset! content (.. % -target -value)) }]]
-        [:br]]
-       [:div.col-xs-12
-        [:button.btn.btn-primary {:disabled @submitting
-                                  :class (if @submitting "submitting")
-                                  :on-click #(dispatch [:submit-new-comment-on-post (:_id  post) (keyword (:section post)) @content user])}
-         "Submit!"]]
-       ])))
-
-(defn c [section]
-  (let [c (subscribe [:current-post-in-section section])]
-    (fn [section]
-      [:button {:on-click #(print @c)} "show current"])))
-(defn single-view
-  [section]
-  (let [current-post (subscribe [:current-post-in-section section])]
-    (fn [section]
-      [:div.row
-       [c section]
-       [:div.col-xs-12
-        [:h3 (:title  @current-post)]
-        [:hr]]
-       [:div.col-xs-12
-        [post-item (:author @current-post) (:content @current-post)]]
-       [:div.col-xs-12
-        (let [comments (:comments @current-post)]
-          (map (fn [comment] ^{:key (:create-at comment)} [post-item (:author comment) (:content comment) ])
-               comments))]
-       [:div.col-xs-12
-        [comment-view @current-post]]])))
-
-(defn- list-item
-  [section post]
-  [:div.row.list-item
-   [:div.col-xs-2
-    [:button {:on-click #()
-              } (-> post :author :name)]]
-   [:div.col-xs-10
-    [:a {:href (str  "#/forum/" (u/kw->str section) "/post/" (:_id post))
-         :on-click #(dispatch [:set-post-in-section section (:_id post)])} (:title post)]]])
-
-(defn list-view
-  [section]
-  (let [posts (subscribe [:posts-in-section section])
-        fetching (subscribe [:fetching-posts-in-section section])]
-    (fn [section]
-      (print "fetching: " @fetching ", " fetching)
-      (cond-> @posts
-        (nil? @posts) (print "nil...")
-        (empty? @posts) (print "empty..")
-        :else (print "has posts.."))
-      [:div.row
-       [wrap-toggle indicator (= @fetching true)]
-       [:button {:on-click #(dispatch [:fetch-posts-in-section section])} "Refresh!"]
-       (if (nil? @posts)
-         (do (dispatch [:fetch-posts-in-section section])
-             [:div])
-         (if (empty? @posts)
-           [:h3 (str "No posts in " section " section")]
-           [:div.col-xs-12
-            (map (fn [post] ^{:key (:_id post)} [list-item section post]) @posts)]))])))
-
 (defn view-switcher
   []
   (let [section (subscribe [:section])

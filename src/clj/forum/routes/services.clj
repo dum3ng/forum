@@ -6,7 +6,8 @@
             [compojure.api.meta :refer [restructure-param]]
             [buddy.auth.accessrules :refer [restrict]]
             [buddy.auth :refer [authenticated?]]
-            [forum.db.core :as db ]))
+            [forum.db.core :as db ]
+            [clojure.tools.logging :as log]))
 
 (defn access-error [_ _]
   (unauthorized {:error "unauthorized"}))
@@ -103,13 +104,34 @@
                 :return (s/maybe User)
                 :query-params [id :- String]
                 (ok nil))
-           (POST "/login" []
+
+           (POST "/register" req
+                 :return s/Any
+                 :body-params [username :- String, password :- String]
+                 :summary "register a user"
+                 (if-let [user (db/register username password)]
+                   (let [user (dissoc user :password)]
+                     (log/info "created user: " user)
+                     (-> (created "" user)
+                         (assoc-in [:session :identity] user)))
+                   (ok "")))
+
+           (POST "/login" request
                  :return String
                  :body-params [username :- String, password :- String]
                  (let [user (db/get-user-by-name username)]
                    (if (= password (:password user))
-                     (ok "success")
-                     (ok "fail"))))
+                     (->  (ok "success")
+                          (assoc-in [:session :identity] (dissoc user password)))
+                     (ok "failure"))))
+           (POST "/logout" request
+                 :return String
+                 :summary "logout current user"
+                 (if (authenticated? request)
+                   (-> (found "/")
+                       (assoc-in [:session :identity] {}))
+                   (found "/login")) )
+
            (GET "/post" []
                 :return [Post]
                 :query-params [section :- String]
@@ -134,6 +156,7 @@
                  :summary "update a post"
                  (ok (db/update-post id user)) )
            (POST "/post/new" []
+                 :auth-rules authenticated?
                  :return operation-response
                  :body-params [post :- s/Any,;; NewPost,
                                section :- s/Any,;; String,

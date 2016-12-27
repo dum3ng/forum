@@ -33,22 +33,34 @@
 (defn- str-response [b]
   (if b
     "success"
-    "fail"))
+    "failure"))
 ;; user
-(defn create-user [user]
-  (str-response (mc/insert db "users"  (assoc user :_id (str-id) :create-at (Date.)))))
+(defn create-user
+  "Create a user:
+  :_id :username :password :create-at
+  If insert successfully, return the user without password,
+  else return nil"
+  ([user]
+   (let [user (assoc user :_id (str-id) :create-at (Date.))]
+     (if (mc/insert db "users" user)
+       user)))
+  ([name pwd]
+   (create-user {:username name :password pwd})))
 
 (defn update-user [id options]
   (str-response (mc/update db "users" {:_id id}
                            {$set options})))
 
 (defn get-user-by-id [id]
-  (-> (mc/find-one-as-map db "users" {:_id id})
-      (dissoc :password)))
+  (mc/find-one-as-map db "users" {:_id id}))
 
 (defn get-user-by-name [name]
   (mc/find-one-as-map db "users" {:username name}))
 
+(defn register [username password]
+  (if (get-user-by-name username)
+    nil
+    (create-user {:username username :password password})))
 ;; posts
 ;; Post {title,content,section}
 ;; user {_id, username}

@@ -1,0 +1,65 @@
+(ns forum.components.component
+  (:require [re-frame.core :refer [subscribe dispatch]]
+            [reagent.core :as r]
+            [ajax.core :refer [POST]]
+            [forum.util :as u]
+            [cljsjs.tether]
+            )
+  )
+
+(defn- get-value [e]
+  (-> js/document
+      (.getElementById e)
+      .value))
+
+(def section-keys [:earth :mars :venus])
+
+(defn indicator
+  []
+  [:div
+   [:span.loader {:style {:display "inline-block"}}
+    [:img {:src "/img/loader.svg"}]]] )
+
+
+(defn nav-link [uri title page collapsed?]
+  (let [selected-page (subscribe [:page])]
+    [:li.nav-item
+     {:class (when (= page @selected-page) "active")}
+     [:a.nav-link
+      {:href uri
+       :on-click #(reset! collapsed? true)} title]]))
+
+;;
+;; pages
+;;
+(defn page-nav []
+  (r/with-let [collapsed? (r/atom true)]
+    [:nav#page-nav.navbar.navbar-dark.bg-primary
+     [:button.navbar-toggler.hidden-sm-up
+      {:on-click #(swap! collapsed? not)} "☰"]
+     [:div.collapse.navbar-toggleable-xs
+      (when-not @collapsed? {:class "in"})
+      [:a.navbar-brand {:href "#/"} "forum"]
+      [:ul.nav.navbar-nav
+       [nav-link "#/" "Home" :home collapsed?]
+       [nav-link "#/forum" "Forum" :forum collapsed?]
+       [nav-link "#/about" "About" :about collapsed?]]]]))
+
+
+
+
+
+(defn c [section]
+  (let [c (subscribe [:current-post-in-section section])]
+    (fn [section]
+      [:button {:on-click #(print @c)} "show current"])))
+
+
+(defn right-bar
+  []
+  (let [user (subscribe [:user])]
+    (fn []
+      [:div.row.rightbar
+       "rightbar"])))
+
+

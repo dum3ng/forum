@@ -6,10 +6,10 @@
   :dependencies [[bouncer "1.0.0"]
                  [buddy "1.2.0"]
                  [cljs-ajax "0.5.8"]
-                 [com.novemberain/monger "3.0.0-rc2"]
+                 [com.novemberain/monger "3.0.0-rc2" :exclusions [ch.qos.logback/logback-classic]]
                  [compojure "1.5.1"]
                  [cprop "0.1.9"]
-                 [luminus-immutant "0.2.2"]
+                 [luminus-immutant "0.2.2" :exclusions [ch.qos.logback/logback-classic]]
                  [luminus-nrepl "0.1.4"]
                  [markdown-clj "0.9.91"]
                  [metosin/compojure-api "1.1.9"]
@@ -19,7 +19,7 @@
                  [org.clojure/clojurescript "1.9.293" :scope "provided"]
                  [org.clojure/tools.cli "0.3.5"]
                  [org.webjars/jquery "3.1.1-1"]
-                 [org.clojure/tools.logging "0.3.1"]
+                 [org.clojure/tools.logging "0.3.1" :exclusions [org.slf4j/slf4j-log4j12]]
                  [org.webjars.bower/tether "1.3.7"]
                  [org.webjars/bootstrap "4.0.0-alpha.5"]
                  [org.webjars/font-awesome "4.7.0"]
@@ -35,7 +35,9 @@
                  [selmer "1.10.0"]
                  [com.cognitect/transit-cljs "0.8.239"]
                  [cljsjs/tether "1.1.1-0"]
-                 [cljsjs/jquery "2.2.4-0"]]
+                 [cljsjs/jquery "2.2.4-0"]
+                 [org.slf4j/slf4j-nop "1.7.12"]
+                 ]
 
   :min-lein-version "2.0.0"
 

@@ -95,3 +95,29 @@
  :minus
  (fn [db _]
    (:minus db)))
+
+(reg-sub
+ :modal-state
+ (fn [db _]
+   (:modal-state db)))
+
+(reg-sub
+ :modal-content
+ (fn [db _]
+   (:modal-content db)))
+
+;; for register
+(reg-sub
+ :register-submitting
+ (fn [db _]
+   (:register-submitting db)))
+
+(reg-sub
+ :register-info
+ (fn [db _]
+   (:register-info db)))
+
+(reg-sub
+ :self
+ (fn [db _]
+   (:self db)))

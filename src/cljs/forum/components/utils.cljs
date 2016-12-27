@@ -1,6 +1,8 @@
 (ns forum.components.utils
   (:require [reagent.core :as r]
-            [cljsjs.jquery]))
+            [cljsjs.jquery]
+            [re-frame.core :refer [subscribe dispatch]]
+            [forum.components.auth :refer [register login]]))
 
 (defn jQ
   [q]
@@ -39,61 +41,13 @@
       (print "index: " @index)
       [:div.container-fluid.tab
        [:div.row
-        (map (fn [[t i]] ^{:key t} [:div.col-xs.tab-title  {:class (if (= @index i) "active")
-                                                           :on-click #(reset! index i)}
-                                   t]) titles)]
+        (doall  (map (fn [[t i]] ^{:key t} [:div.col-xs.tab-title  {:class (if (= @index i) "active")
+                                                                   :on-click #(reset! index i)}
+                                           t]) titles))]
        [:div.row
         [:div.col-xs-12.tab-content
-         (map (fn [[c i]] ^{:key c
-                           :class "tab-content"} [wrap-toggle [:div  c] (= @index i)]) contents)]]])))
-
-(defn login
-  []
-  [:div.row
-   [:div.col-xs-6.offset-xs-3
-    [:div.input-group
-     [:span.input-group-addon
-      [:img {:src "/img/account.svg"}]]
-     [:input.form-control {:type "text"
-                           :placeholder "username"}]]
-    [:br]]
-   [:div.col-xs-6.offset-xs-3
-    [:div.input-group
-     [:span.input-group-addon
-      [:img {:src "/img/password.svg"}]]
-     [:input.form-control {:type "password"
-                           :placeholder "password"}]]
-    [:br]
-    ]
-   [:div.col-xs-6.offset-xs-3
-    [:div.input-group
-     [:button.btn.btn-primary.form-control {:on-click #()}
-      "Log In"]]]
-   [:br]])
-
-(defn register
-  []
-  [:div.row
-   [:div.col-xs-6.offset-xs-3
-    [:div.input-group
-     [:span.input-group-addon
-      [:img {:src "/img/account.svg"}]]
-     [:input.form-control {:type "text"
-                           :placeholder "username"}]]
-    [:br]]
-   [:div.col-xs-6.offset-xs-3
-    [:div.input-group
-     [:span.input-group-addon
-      [:img {:src "/img/password.svg"}]]
-     [:input.form-control {:type "password"
-                           :placeholder "password"}]]
-    [:br]
-    ]
-   [:div.col-xs-6.offset-xs-3
-    [:div.input-group
-     [:button.btn.btn-primary.form-control {:on-click #()}
-      "Register"]]]
-   [:br]])
+         (doall (map (fn [[c i]] ^{:key c
+                                  :class "tab-content"} [wrap-toggle [:div  c] (= @index i)]) contents))]]])))
 
 
 (defn auth
@@ -106,22 +60,26 @@
          }]])
 
 (defn modal
-  [content]
-  [:div#modal.modal.fade {:on-click (fn [e]  (let [modal (js/$ "#modal")
-                                                  backdrop (js/$ "#backdrop")
-                                                  that  (.querySelector js/document "#modal")]
-                                              (print that)
-                                              (print (.-target e))
-                                              (if (= (.-target e) (.get modal 0))
-                                                (do (print "should hide")
-                                                    (.hide modal )
-                                                    (.hide backdrop))
-                                                (print "not equeal")
-                                                )))}
-   [:div.modal-dialog
-    [:div.modal-content
-     [content]]]]
-  )
+  []
+  (let [show (subscribe [:modal-state])
+        content (subscribe [:modal-content])]
+    (fn []
+      [:div#modal.modal.fade {:style {:display  (if @show "block" "none")}
+                              :on-click (fn [e]
+                                          (if (= (.get (js/$ "#modal") 0) (.-target e))
+                                            (dispatch [:set-modal-state false])))}
+       [:div.modal-dialog
+        [:div.modal-content
+         (if (= @content :auth)
+           [auth]
+           [:div])]]])))
+
+(defn modal-backdrop
+  []
+  (let [show (subscribe [:modal-state])]
+    (fn []
+      [:div#backdrop.modal-backdrop.fade {:style  {:display  (if @show "block" "none")} }])))
+
 ;; (defn show []
 ;;   (let [all (subscribe [:all])
 ;;         minus (subscribe [:minus])

@@ -83,11 +83,11 @@
    ;; can be better, sue timestamp
    ))
 
-(reg-event-db
+(reg-event-fx
  :submit-new-post-failure
- (fn [db [_ section result]]
-   (print result)
-   (assoc-in db [:submitting-new-post-in-section section] false)))
+ (fn [{db :db} [_ section result]]
+   {:db    (assoc-in db [:submitting-new-post-in-section section] false)
+    :dispatch-n (list [:set-modal-state true] [:set-modal-content :auth])}) )
 
 ;; for comment
 (reg-event-fx
@@ -213,3 +213,46 @@
  :minus-fail
  (fn [db [_ result]]
    (assoc db :minus result)))
+
+(reg-event-db
+ :set-modal-state
+ (fn [db [_ show]]
+   (assoc db :modal-state show)))
+
+(reg-event-db
+ :set-modal-content
+ (fn [db [_ c]]
+   (assoc db :modal-content c)))
+
+;; for registeration
+(reg-event-fx
+ :register
+ (fn [{db :db} [_ name pwd]]
+   {:db (assoc db :register-submitting true)
+    :http-xhrio {:params {:username name
+                          :password pwd}
+                 :uri "/api/register"
+                 :method :post
+                 :response-format (ajax/json-response-format {:keywords? true})
+                 :format (ajax/json-request-format)
+                 :on-success [:register-success]
+                 :on-failure [:register-failure]}}))
+
+(reg-event-db
+ :register-success
+ (fn [db [_ result]]
+   (case result
+     ""    (-> db
+               (assoc :register-submitting false)
+               (assoc :register-info "username has been taken."))
+     (-> db                ;; created!
+         (assoc :register-submitting false)
+         (assoc :self result)
+         (assoc :modal-state false)))))
+
+(reg-event-db
+ :register-failure
+ (fn [db [_ result]]
+   (-> db
+       (assoc :register-submitting false)
+       (assoc :register-info (:status-text result)))))

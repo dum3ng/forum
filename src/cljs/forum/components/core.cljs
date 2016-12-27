@@ -1,11 +1,14 @@
 (ns forum.components.core
   (:require [forum.components.header :refer [page-nav]]
             [re-frame.core :refer [subscribe]]
-            [forum.components.utils :refer [wrap-toggle tab  auth modal]]
+            [forum.components.utils :refer [wrap-toggle tab  auth modal modal-backdrop]]
             [forum.components.home :refer [home-page]]
             [forum.components.about :refer [about-page]]
             [forum.components.section :refer [section-page]]
-            [cljsjs.jquery]))
+            [cljsjs.jquery]
+            [re-frame.core :refer [dispatch subscribe]]
+            [goog.crypt :as crypt])
+  (:import goog.crypt.Md5))
 
 
 
@@ -22,30 +25,35 @@
         [wrap-toggle about-page (= @c-page :about)]]])))
 
 
-(defn make-tab
-  [title content]
-  {:title title
-   :content content})
-
-(defn tab-test
-  []
-  [tab [(make-tab "tab0" "content 00")
-        (make-tab "tab1" "content 11")
-        (make-tab "tab2" "content 22")]])
-
 (defn modal-test
   []
-  [:button {:on-click #(let [modal (js/$ "#modal")
-                             backdrop (js/$ "#backdrop")]
-                         (.show modal)
-                         (.show backdrop))} "show modal"])
+  [:button {:on-click #(dispatch [:set-modal-state true])} "show modal"])
+
+(defn one-modal
+  []
+  (let [show (subscribe [:show-modal])
+        content (subscribe [:modal-content])]
+    (fn []
+      ())))
+
+(defn avatar
+  [email]
+  (let [digester (Md5.)
+        hash (do (.update digester (crypt/stringToByteArray email))
+                 (.digest digester))
+        hashx (crypt/byteArrayToHex hash)
+        ]
+    (fn [email]
+      (print hash)
+      [:div.avatar
+       [:img {:src (str "https://www.gravatar.com/avatar/" hashx)}]])))
 ;; app
 (defn app
   []
   [:div
    [page-nav]
    [modal-test]
-   [modal auth]
+   [modal]
    [:div.container
     [page]]
-   [:div#backdrop.modal-backdrop.fade]])
+   [modal-backdrop]])

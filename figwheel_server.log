@@ -4168,3 +4168,411 @@ Notifyng browser that CSS file changed: resources/public/css/screen.css
 [0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
 [32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.349 seconds.[0m
 notifying browser that file changed:  out/forum/handlers.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 5.224 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  out/forum/components/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 2.66 seconds.[0m
+notifying browser that file changed:  out/forum/components/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 2.451 seconds.[0m
+notifying browser that file changed:  out/forum/components/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.086 seconds.[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 3.085 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/goog/deps.js
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  out/forum/handlers.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/forum/components/utils.cljs   line:63  column:13  ----[0m
+
+  [1mUse of undeclared Var forum.components.utils/auth[0m
+
+  [36m59[0m  [36m                                            (dispatch [:set-modal-state false])))}[0m
+  [36m60[0m  [36m       [:div.modal-dialog[0m
+  [36m61[0m  [36m        [:div.modal-content[0m
+  [36m62[0m  [36m         (if (= @content :auth)[0m
+  [33m63[0m  [1m           [auth])]]])))[0m
+  [0m  [0m  [33m            ^--- Use of undeclared Var forum.components.utils/auth[0m
+  [36m64[0m  [36m[0m
+  [36m65[0m  [36m(defn modal-backdrop[0m
+  [36m66[0m  [36m  [][0m
+  [36m67[0m  [36m  (let [show (subscribe [:modal-state])][0m
+  [36m68[0m  [36m    (fn [][0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/components/utils.cljs  ----[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 2.522 seconds.[0m
+[36m----  Could not Analyze  src/cljs/forum/components/core.cljs  ----[0m
+
+  [1mInvalid :refer, var forum.components.utils/auth does not exist [0m
+
+[36m----  Analysis Error : Please see src/cljs/forum/components/core.cljs  ----[0m
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.413 seconds.[0m
+[36m----  Exception    ----[0m
+
+  [1mAssert failed: Circular dependency detected, forum.core -> forum.components.core -> forum.components.utils -> forum.components.auth -> forum.components.utils
+(not (some #{ns-name} seen))[0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.AssertionError: Assert failed: Circular dependency detected, forum.core -> forum.components.core -> forum.components.utils -> forum.components.auth -> forum.components.utils
+(not (some #{ns-name} seen))
+ at cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:167)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    cljs.js_deps$dependency_order_visit$fn__751.invoke (js_deps.cljc:175)
+    clojure.core.protocols$iter_reduce.invokeStatic (protocols.clj:49)
+    clojure.core.protocols$fn__6742.invokeStatic (protocols.clj:75)
+    clojure.core.protocols/fn (protocols.clj:75)
+    clojure.core.protocols$fn__6684$G__6679__6697.invoke (protocols.clj:13)
+    clojure.core$reduce.invokeStatic (core.clj:6545)
+    clojure.core$reduce.invoke (core.clj:6527)
+    cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:175)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    cljs.js_deps$dependency_order_visit$fn__751.invoke (js_deps.cljc:175)
+    clojure.core.protocols$iter_reduce.invokeStatic (protocols.clj:49)
+    clojure.core.protocols$fn__6742.invokeStatic (protocols.clj:75)
+    clojure.core.protocols/fn (protocols.clj:75)
+    clojure.core.protocols$fn__6684$G__6679__6697.invoke (protocols.clj:13)
+    clojure.core$reduce.invokeStatic (core.clj:6545)
+    clojure.core$reduce.invoke (core.clj:6527)
+    cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:175)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    cljs.js_deps$dependency_order_visit$fn__751.invoke (js_deps.cljc:175)
+    clojure.core.protocols$iter_reduce.invokeStatic (protocols.clj:49)
+    clojure.core.protocols$fn__6742.invokeStatic (protocols.clj:75)
+    clojure.core.protocols/fn (protocols.clj:75)
+    clojure.core.protocols$fn__6684$G__6679__6697.invoke (protocols.clj:13)
+    clojure.core$reduce.invokeStatic (core.clj:6545)
+    clojure.core$reduce.invoke (core.clj:6527)
+    cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:175)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    cljs.js_deps$dependency_order_visit$fn__751.invoke (js_deps.cljc:175)
+    clojure.core.protocols$iter_reduce.invokeStatic (protocols.clj:49)
+    clojure.core.protocols$fn__6742.invokeStatic (protocols.clj:75)
+    clojure.core.protocols/fn (protocols.clj:75)
+    clojure.core.protocols$fn__6684$G__6679__6697.invoke (protocols.clj:13)
+    clojure.core$reduce.invokeStatic (core.clj:6545)
+    clojure.core$reduce.invoke (core.clj:6527)
+    cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:175)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:165)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    clojure.core.protocols$iter_reduce.invokeStatic (protocols.clj:49)
+    clojure.core.protocols$fn__6744.invokeStatic (protocols.clj:75)
+    clojure.core.protocols/fn (protocols.clj:75)
+    clojure.core.protocols$fn__6684$G__6679__6697.invoke (protocols.clj:13)
+    clojure.core$reduce.invokeStatic (core.clj:6545)
+    clojure.core$reduce.invoke (core.clj:6527)
+    cljs.js_deps$dependency_order.invokeStatic (js_deps.cljc:195)
+    cljs.js_deps$dependency_order.invoke (js_deps.cljc:189)
+    cljs.closure$build.invokeStatic (closure.clj:1945)
+    cljs.closure$build.invoke (closure.clj:1883)
+    cljs.build.api$build.invokeStatic (api.clj:199)
+    cljs.build.api$build.invoke (api.clj:187)
+    figwheel_sidecar.components.cljs_autobuild$cljs_build.invokeStatic (cljs_autobuild.clj:28)
+    figwheel_sidecar.components.cljs_autobuild$cljs_build.invoke (cljs_autobuild.clj:27)
+    figwheel_sidecar.build_middleware.injection$hook$fn__24616.invoke (injection.clj:132)
+    figwheel_sidecar.components.cljs_autobuild$notify_command_hook$fn__25011.invoke (cljs_autobuild.clj:68)
+    figwheel_sidecar.components.cljs_autobuild$figwheel_start_and_end_messages$fn__25003.invoke (cljs_autobuild.clj:48)
+    figwheel_sidecar.build_middleware.notifications$hook$fn__24841.invoke (notifications.clj:179)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__24917.invoke (clj_reloading.clj:115)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__24963.invoke (javascript_reloading.clj:60)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__25015.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__25056.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__2893$fn__2894.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__2893.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1142)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:617)
+    java.lang.Thread.run (Thread.java:745)
+
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[31mFailed to compile "target/cljsbuild/public/js/app.js" in 0.359 seconds.[0m
+[36m----  Exception    ----[0m
+
+  [1mAssert failed: Circular dependency detected,  -> forum.components.utils -> forum.components.auth -> forum.components.utils
+(not (some #{ns-name} seen))[0m
+
+[36m----  Exception Stack Trace  ----[0m
+
+java.lang.AssertionError: Assert failed: Circular dependency detected,  -> forum.components.utils -> forum.components.auth -> forum.components.utils
+(not (some #{ns-name} seen))
+ at cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:167)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    cljs.js_deps$dependency_order_visit$fn__751.invoke (js_deps.cljc:175)
+    clojure.core.protocols$iter_reduce.invokeStatic (protocols.clj:49)
+    clojure.core.protocols$fn__6742.invokeStatic (protocols.clj:75)
+    clojure.core.protocols/fn (protocols.clj:75)
+    clojure.core.protocols$fn__6684$G__6679__6697.invoke (protocols.clj:13)
+    clojure.core$reduce.invokeStatic (core.clj:6545)
+    clojure.core$reduce.invoke (core.clj:6527)
+    cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:175)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    cljs.js_deps$dependency_order_visit$fn__751.invoke (js_deps.cljc:175)
+    clojure.core.protocols$iter_reduce.invokeStatic (protocols.clj:49)
+    clojure.core.protocols$fn__6742.invokeStatic (protocols.clj:75)
+    clojure.core.protocols/fn (protocols.clj:75)
+    clojure.core.protocols$fn__6684$G__6679__6697.invoke (protocols.clj:13)
+    clojure.core$reduce.invokeStatic (core.clj:6545)
+    clojure.core$reduce.invoke (core.clj:6527)
+    cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:175)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    cljs.js_deps$dependency_order_visit$fn__751.invoke (js_deps.cljc:175)
+    clojure.core.protocols$iter_reduce.invokeStatic (protocols.clj:49)
+    clojure.core.protocols$fn__6742.invokeStatic (protocols.clj:75)
+    clojure.core.protocols/fn (protocols.clj:75)
+    clojure.core.protocols$fn__6684$G__6679__6697.invoke (protocols.clj:13)
+    clojure.core$reduce.invokeStatic (core.clj:6545)
+    clojure.core$reduce.invoke (core.clj:6527)
+    cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:175)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    cljs.js_deps$dependency_order_visit.invokeStatic (js_deps.cljc:165)
+    cljs.js_deps$dependency_order_visit.invoke (js_deps.cljc:163)
+    clojure.core.protocols$iter_reduce.invokeStatic (protocols.clj:49)
+    clojure.core.protocols$fn__6744.invokeStatic (protocols.clj:75)
+    clojure.core.protocols/fn (protocols.clj:75)
+    clojure.core.protocols$fn__6684$G__6679__6697.invoke (protocols.clj:13)
+    clojure.core$reduce.invokeStatic (core.clj:6545)
+    clojure.core$reduce.invoke (core.clj:6527)
+    cljs.js_deps$dependency_order.invokeStatic (js_deps.cljc:195)
+    cljs.js_deps$dependency_order.invoke (js_deps.cljc:189)
+    cljs.closure$build.invokeStatic (closure.clj:1945)
+    cljs.closure$build.invoke (closure.clj:1883)
+    cljs.build.api$build.invokeStatic (api.clj:199)
+    cljs.build.api$build.invoke (api.clj:187)
+    figwheel_sidecar.components.cljs_autobuild$cljs_build.invokeStatic (cljs_autobuild.clj:28)
+    figwheel_sidecar.components.cljs_autobuild$cljs_build.invoke (cljs_autobuild.clj:27)
+    figwheel_sidecar.build_middleware.injection$hook$fn__24616.invoke (injection.clj:132)
+    figwheel_sidecar.components.cljs_autobuild$notify_command_hook$fn__25011.invoke (cljs_autobuild.clj:68)
+    figwheel_sidecar.components.cljs_autobuild$figwheel_start_and_end_messages$fn__25003.invoke (cljs_autobuild.clj:48)
+    figwheel_sidecar.build_middleware.notifications$hook$fn__24841.invoke (notifications.clj:179)
+    figwheel_sidecar.build_middleware.clj_reloading$hook$fn__24917.invoke (clj_reloading.clj:115)
+    figwheel_sidecar.build_middleware.javascript_reloading$hook$fn__24963.invoke (javascript_reloading.clj:60)
+    figwheel_sidecar.components.cljs_autobuild$color_output$fn__25015.invoke (cljs_autobuild.clj:79)
+    figwheel_sidecar.components.cljs_autobuild$execute_build$fn__25056.invoke (cljs_autobuild.clj:231)
+    figwheel_sidecar.utils$sync_exec$fn__2893$fn__2894.invoke (utils.clj:13)
+    figwheel_sidecar.utils$sync_exec$fn__2893.invoke (utils.clj:12)
+    clojure.core$binding_conveyor_fn$fn__4676.invoke (core.clj:1941)
+    clojure.lang.AFn.applyToHelper (AFn.java:154)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.lang.Agent$Action.doRun (Agent.java:114)
+    clojure.lang.Agent$Action.run (Agent.java:163)
+    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1142)
+    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:617)
+    java.lang.Thread.run (Thread.java:745)
+
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/forum/components/auth.cljs   line:34  column:15  ----[0m
+
+  [1mNo such namespace: r, could not locate r.cljs, r.cljc, or Closure namespace ""[0m
+
+  [36m30[0m  [36m   [:br]])[0m
+  [36m31[0m  [36m[0m
+  [36m32[0m  [36m(defn register[0m
+  [36m33[0m  [36m  [][0m
+  [33m34[0m  [1m  (let [name (r/atom "")[0m
+  [0m  [0m  [33m              ^--- No such namespace: r, could not locate r.cljs, r.cljc, or Closure namespace ""[0m
+  [36m35[0m  [36m        pwd (r/atom "")[0m
+  [36m36[0m  [36m        submitting (subscribe [:register-submitting])[0m
+  [36m37[0m  [36m        info (subscribe [:register-info])][0m
+  [36m38[0m  [36m    [:div.row[0m
+  [36m39[0m  [36m     [:div.col-xs-6.offset-xs-3[0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/components/auth.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/forum/components/auth.cljs   line:34  column:15  ----[0m
+
+  [1mUse of undeclared Var r/atom[0m
+
+  [36m30[0m  [36m   [:br]])[0m
+  [36m31[0m  [36m[0m
+  [36m32[0m  [36m(defn register[0m
+  [36m33[0m  [36m  [][0m
+  [33m34[0m  [1m  (let [name (r/atom "")[0m
+  [0m  [0m  [33m              ^--- Use of undeclared Var r/atom[0m
+  [36m35[0m  [36m        pwd (r/atom "")[0m
+  [36m36[0m  [36m        submitting (subscribe [:register-submitting])[0m
+  [36m37[0m  [36m        info (subscribe [:register-info])][0m
+  [36m38[0m  [36m    [:div.row[0m
+  [36m39[0m  [36m     [:div.col-xs-6.offset-xs-3[0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/components/auth.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/forum/components/auth.cljs   line:35  column:14  ----[0m
+
+  [1mNo such namespace: r, could not locate r.cljs, r.cljc, or Closure namespace ""[0m
+
+  [36m32[0m  [36m(defn register[0m
+  [36m33[0m  [36m  [][0m
+  [36m34[0m  [36m  (let [name (r/atom "")[0m
+  [33m35[0m  [1m        pwd (r/atom "")[0m
+  [0m  [0m  [33m             ^--- No such namespace: r, could not locate r.cljs, r.cljc, or Closure namespace ""[0m
+  [36m36[0m  [36m        submitting (subscribe [:register-submitting])[0m
+  [36m37[0m  [36m        info (subscribe [:register-info])][0m
+  [36m38[0m  [36m    [:div.row[0m
+  [36m39[0m  [36m     [:div.col-xs-6.offset-xs-3[0m
+  [36m40[0m  [36m      [:div.input-group[0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/components/auth.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/forum/components/auth.cljs   line:35  column:14  ----[0m
+
+  [1mUse of undeclared Var r/atom[0m
+
+  [36m32[0m  [36m(defn register[0m
+  [36m33[0m  [36m  [][0m
+  [36m34[0m  [36m  (let [name (r/atom "")[0m
+  [33m35[0m  [1m        pwd (r/atom "")[0m
+  [0m  [0m  [33m             ^--- Use of undeclared Var r/atom[0m
+  [36m36[0m  [36m        submitting (subscribe [:register-submitting])[0m
+  [36m37[0m  [36m        info (subscribe [:register-info])][0m
+  [36m38[0m  [36m    [:div.row[0m
+  [36m39[0m  [36m     [:div.col-xs-6.offset-xs-3[0m
+  [36m40[0m  [36m      [:div.input-group[0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/components/auth.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/forum/components/core.cljs   line:29  column:25  ----[0m
+
+  [1mUse of undeclared Var forum.components.core/dispatch[0m
+
+  [36m27[0m  [36m(defn modal-test[0m
+  [36m28[0m  [36m  [][0m
+  [33m29[0m  [1m  [:button {:on-click #(dispatch [:set-modal-state true])} "show modal"])[0m
+  [0m  [0m  [33m                        ^--- Use of undeclared Var forum.components.core/dispatch[0m
+  [36m30[0m  [36m[0m
+  [36m31[0m  [36m(defn one-modal[0m
+  [36m32[0m  [36m  [][0m
+  [36m33[0m  [36m  (let [show (subscribe [:show-modal])[0m
+  [36m34[0m  [36m        content (subscribe [:modal-content])][0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/components/core.cljs  ----[0m
+[36m----  Compiler Warning on   src/cljs/forum/subscriptions.cljs   line:115  column:2  ----[0m
+
+  [1mUse of undeclared Var forum.subscriptions/reg-db[0m
+
+  [36m111[0m  [36m :register-submitting[0m
+  [36m112[0m  [36m (fn [db _][0m
+  [36m113[0m  [36m   (:register-submitting db)))[0m
+  [36m114[0m  [36m[0m
+  [33m115[0m  [1m(reg-db[0m
+  [0m   [0m  [33m ^--- Use of undeclared Var forum.subscriptions/reg-db[0m
+  [36m116[0m  [36m :register-info[0m
+  [36m117[0m  [36m (fn [db _][0m
+  [36m118[0m  [36m   (:register-info db)))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/subscriptions.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 2.047 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  out/forum/components/utils.js
+notifying browser that file changed:  out/forum/components/auth.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/forum/components/core.cljs   line:29  column:25  ----[0m
+
+  [1mUse of undeclared Var forum.components.core/dispatch[0m
+
+  [36m27[0m  [36m(defn modal-test[0m
+  [36m28[0m  [36m  [][0m
+  [33m29[0m  [1m  [:button {:on-click #(dispatch [:set-modal-state true])} "show modal"])[0m
+  [0m  [0m  [33m                        ^--- Use of undeclared Var forum.components.core/dispatch[0m
+  [36m30[0m  [36m[0m
+  [36m31[0m  [36m(defn one-modal[0m
+  [36m32[0m  [36m  [][0m
+  [36m33[0m  [36m  (let [show (subscribe [:show-modal])[0m
+  [36m34[0m  [36m        content (subscribe [:modal-content])][0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/components/core.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.909 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  out/forum/components/auth.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.897 seconds.[0m
+notifying browser that file changed:  out/forum/components/core.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.21 seconds.[0m
+notifying browser that file changed:  out/forum/components/utils.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.544 seconds.[0m
+notifying browser that file changed:  out/forum/components/auth.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.89 seconds.[0m
+notifying browser that file changed:  out/forum/subscriptions.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/forum/handlers.cljs   line:236  column:35  ----[0m
+
+  [1mWrong number of args (2) passed to ajax.core/json-response-format[0m
+
+  [36m232[0m  [36m    :http-xhrio {:params {:username name[0m
+  [36m233[0m  [36m                          :password pwd}[0m
+  [36m234[0m  [36m                 :uri "/api/register"[0m
+  [36m235[0m  [36m                 :method POST[0m
+  [33m236[0m  [1m                 :response-format (ajax/json-response-format :keywords? true)[0m
+  [0m   [0m  [33m                                  ^--- Wrong number of args (2) passed to ajax.core/json-response-format[0m
+  [36m237[0m  [36m                 :request-format (ajax/json-request-format)[0m
+  [36m238[0m  [36m                 :on-success [:register-success][0m
+  [36m239[0m  [36m                 :on-failure [:register-failure]}}))[0m
+  [36m240[0m  [36m[0m
+  [36m241[0m  [36m(reg-event-db[0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/handlers.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.467 seconds.[0m
+notifying browser that file changed:  out/forum/handlers.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.183 seconds.[0m
+notifying browser that file changed:  out/forum/handlers.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.123 seconds.[0m
+notifying browser that file changed:  out/forum/handlers.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.115 seconds.[0m
+notifying browser that file changed:  out/forum/handlers.js
+notifying browser that file changed:  out/forum/db.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.17 seconds.[0m
+notifying browser that file changed:  out/forum/handlers.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/forum/components/new.cljs   line:1  column:1  ----[0m
+
+  [1mNamespace forum.components.new contains a reserved JavaScript keyword, the corresponding Google Closure namespace will be munged to forum.components.new$[0m
+
+  [33m1[0m  [1m(ns forum.components.new[0m
+  [0m [0m  [33m^--- Namespace forum.components.new contains a reserved JavaScript keyword, the corresponding Google Closure namespace will be munged to forum.components.new$[0m
+  [36m2[0m  [36m  (:require [re-frame.core :refer [subscribe dispatch]][0m
+  [36m3[0m  [36m            [reagent.core :as r]))[0m
+  [36m4[0m  [36m[0m
+  [36m5[0m  [36m(def user {:_id "identiclaID"[0m
+  [36m6[0m  [36m           :create-at (.toISOString (js/Date.))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/components/new.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.985 seconds.[0m
+notifying browser that file changed:  out/forum/components/new.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.89 seconds.[0m
+notifying browser that file changed:  out/forum/subscriptions.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[36m----  Compiler Warning on   src/cljs/forum/components/new.cljs   line:1  column:1  ----[0m
+
+  [1mNamespace forum.components.new contains a reserved JavaScript keyword, the corresponding Google Closure namespace will be munged to forum.components.new$[0m
+
+  [33m1[0m  [1m(ns forum.components.new[0m
+  [0m [0m  [33m^--- Namespace forum.components.new contains a reserved JavaScript keyword, the corresponding Google Closure namespace will be munged to forum.components.new$[0m
+  [36m2[0m  [36m  (:require [re-frame.core :refer [subscribe dispatch]][0m
+  [36m3[0m  [36m            [reagent.core :as r]))[0m
+  [36m4[0m  [36m[0m
+  [36m5[0m  [36m(def user {:_id "identiclaID"[0m
+  [36m6[0m  [36m           :create-at (.toISOString (js/Date.))[0m
+
+[36m----  Compiler Warning : Please see src/cljs/forum/components/new.cljs  ----[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 0.764 seconds.[0m
+notifying browser that file changed:  out/forum/components/new.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 2.945 seconds.[0m
+notifying browser that file changed:  target/cljsbuild/public/js/out/cljs_deps.js
+notifying browser that file changed:  out/forum/components/section.js
+[0mCompiling "target/cljsbuild/public/js/app.js" from ["src/cljs" "src/cljc" "env/dev/cljs"]...[0m
+[32mSuccessfully compiled "target/cljsbuild/public/js/app.js" in 1.75 seconds.[0m
+notifying browser that file changed:  out/forum/handlers.js

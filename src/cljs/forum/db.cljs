@@ -14,11 +14,12 @@
    :docs ""
    :user {}
    :self {}
-   :section :earth
-   ;; posts
-   ;; if is editing a new post
-   ;; :new-post false
+   ;; the modal-content can be
+   ;; :auth  and others...
+   :modal-state false
+   :modal-content :auth
 
+   :section :earth
    ;; the 3 state of a section is:
    ;; :new, :single, :list
    :state-of-section (sections-value :list)
@@ -37,4 +38,6 @@
    :submitting-new-comment false
 
 
-   :fetching false})
+   :register-submitting false
+   :register-info ""
+   })
